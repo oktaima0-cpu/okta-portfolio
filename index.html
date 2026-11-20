@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Portofolio pribadi Okta — pelajar yang tertarik dengan teknologi dan dunia digital.">
+  <meta name="theme-color" content="#080f1e">
+  <title>Okta — Personal Portfolio</title>
+  <style>
+    :root {
+      --bg: #080f1e; --panel: #0e1a2d; --panel2: #122541;
+      --blue: #60a5fa; --blue2: #2563eb; --text: #f8fafc;
+      --muted: #a9bad0; --line: rgba(148, 180, 220, .16);
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0; color: var(--text); background:
+        radial-gradient(ellipse at 80% 5%, rgba(37,99,235,.18), transparent 35%),
+        radial-gradient(ellipse at 5% 45%, rgba(14,116,144,.10), transparent 30%), var(--bg);
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      line-height: 1.65;
+    }
+    a { color: inherit; text-decoration: none; }
+    .wrap { width: min(1080px, calc(100% - 40px)); margin: auto; }
+    header { position: sticky; top: 0; z-index: 10; backdrop-filter: blur(16px); background: rgba(8,15,30,.82); border-bottom: 1px solid var(--line); }
+    nav { min-height: 72px; display: flex; align-items: center; justify-content: space-between; gap: 24px; }
+    .logo { font-size: 1.35rem; font-weight: 900; letter-spacing: .08em; color: var(--blue); }
+    .navlinks { display: flex; gap: 28px; color: var(--muted); font-size: .92rem; }
+    .navlinks a:hover { color: white; }
+    .hero { min-height: 650px; display: grid; grid-template-columns: 1.25fr .75fr; align-items: center; gap: 50px; padding: 90px 0; }
+    .eyebrow { color: #93c5fd; text-transform: uppercase; letter-spacing: .16em; font-size: .75rem; font-weight: 800; }
+    h1 { font-size: clamp(3rem, 7vw, 5.7rem); line-height: 1.02; letter-spacing: -.055em; margin: 18px 0; }
+    .gradient { background: linear-gradient(100deg, #93c5fd, #3b82f6 60%, #22d3ee); -webkit-background-clip: text; background-clip: text; color: transparent; }
+    .lead { color: var(--muted); font-size: 1.12rem; max-width: 590px; }
+    .actions { display: flex; flex-wrap: wrap; gap: 14px; margin-top: 30px; }
+    .btn { display: inline-flex; align-items: center; justify-content: center; padding: 12px 19px; border-radius: 12px; font-weight: 750; border: 1px solid var(--line); transition: .2s; }
+    .btn.primary { background: linear-gradient(110deg, #2563eb, #0ea5e9); border: 0; box-shadow: 0 10px 35px rgba(37,99,235,.25); }
+    .btn:hover { transform: translateY(-3px); }
+    .orb-card { min-height: 330px; border: 1px solid rgba(96,165,250,.28); border-radius: 28px; background: linear-gradient(145deg, rgba(18,37,65,.96), rgba(9,20,38,.94)); display: grid; place-items: center; position: relative; overflow: hidden; box-shadow: 0 30px 90px rgba(0,0,0,.25); }
+    .orb-card:before, .orb-card:after { content: ""; position: absolute; border: 1px solid rgba(96,165,250,.22); border-radius: 50%; width: 260px; height: 260px; }
+    .orb-card:after { width: 330px; height: 330px; }
+    .orb { width: 155px; height: 155px; border-radius: 42px; display: grid; place-items: center; font-size: 3.4rem; font-weight: 900; color: white; background: linear-gradient(145deg, #3b82f6, #0e7490); box-shadow: 0 0 70px rgba(59,130,246,.4); transform: rotate(-8deg); z-index: 1; }
+    .orb-caption { position: absolute; bottom: 25px; color: #93c5fd; font-size: .72rem; letter-spacing: .2em; font-weight: 800; }
+    section { padding: 75px 0; }
+    .section-title { font-size: clamp(2rem, 4vw, 3rem); margin: 8px 0 14px; letter-spacing: -.04em; }
+    .section-copy { color: var(--muted); max-width: 680px; }
+    .cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; margin-top: 32px; }
+    .card { padding: 25px; border: 1px solid var(--line); background: rgba(14,26,45,.8); border-radius: 20px; }
+    .card .icon { font-size: 1.7rem; }
+    .card h3 { margin: 12px 0 7px; }
+    .card p { color: var(--muted); margin: 0; font-size: .95rem; }
+    .contact { border: 1px solid rgba(96,165,250,.25); border-radius: 26px; padding: clamp(25px, 5vw, 48px); background: linear-gradient(130deg, rgba(18,37,65,.95), rgba(10,24,44,.95)); }
+    footer { border-top: 1px solid var(--line); padding: 25px 0; color: var(--muted); font-size: .88rem; }
+    .fade { animation: rise .8s ease both; }
+    @keyframes rise { from { opacity: 0; transform: translateY(18px); } to { opacity: 1; transform: translateY(0); } }
+    @media (max-width: 760px) {
+      .navlinks { gap: 14px; font-size: .82rem; }
+      .hero { grid-template-columns: 1fr; min-height: auto; padding: 75px 0 55px; gap: 35px; }
+      .orb-card { min-height: 270px; }
+      .cards { grid-template-columns: 1fr; }
+      section { padding: 55px 0; }
+    }
+    @media (max-width: 420px) { .wrap { width: min(100% - 28px, 1080px); } .navlinks { gap: 10px; } .navlinks a { font-size: .75rem; } }
+  </style>
+</head>
+<body>
+  <header>
+    <nav class="wrap">
+      <a class="logo" href="#home">OKTA.</a>
+      <div class="navlinks">
+        <a href="#home">Home</a><a href="#about">About</a><a href="#interests">Interests</a><a href="#contact">Contact</a>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <div class="wrap hero" id="home">
+      <div class="fade">
+        <div class="eyebrow">Personal portfolio · Welcome</div>
+        <h1>Halo, saya<br><span class="gradient">Okta.</span></h1>
+        <p class="lead">Pelajar yang tertarik dengan teknologi dan dunia digital. Saya senang belajar hal baru, mengeksplorasi ide, dan berkembang sedikit demi sedikit.</p>
+        <div class="actions">
+          <a class="btn primary" href="#about">Kenali saya <span aria-hidden="true">&nbsp;↗</span></a>
+          <a class="btn" href="#contact">Hubungi saya</a>
+        </div>
+      </div>
+      <div class="orb-card fade" aria-label="Ilustrasi logo Okta">
+        <div class="orb">O.</div>
+        <div class="orb-caption">CREATIVE MIND · DIGITAL WORLD</div>
+      </div>
+    </div>
+
+    <section id="about">
+      <div class="wrap">
+        <div class="eyebrow">01 / About me</div>
+        <h2 class="section-title">Sedikit tentang saya.</h2>
+        <p class="section-copy">Saya adalah seorang pelajar yang punya rasa ingin tahu besar terhadap perkembangan teknologi dan dunia digital. Saat ini saya terus belajar, mencoba hal baru, dan membangun kemampuan untuk masa depan.</p>
+      </div>
+    </section>
+
+    <section id="interests">
+      <div class="wrap">
+        <div class="eyebrow">02 / What I like</div>
+        <h2 class="section-title">Hal yang saya minati.</h2>
+        <p class="section-copy">Beberapa bidang yang ingin saya pelajari dan eksplorasi lebih jauh.</p>
+        <div class="cards">
+          <article class="card"><div class="icon">💻</div><h3>Technology</h3><p>Mengenal teknologi dan memahami bagaimana hal-hal digital bekerja.</p></article>
+          <article class="card"><div class="icon">🌐</div><h3>Digital World</h3><p>Menjelajahi internet, platform digital, dan berbagai peluang di dalamnya.</p></article>
+          <article class="card"><div class="icon">🚀</div><h3>Learning</h3><p>Terus belajar, bereksperimen, dan mengembangkan kemampuan baru.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="wrap">
+        <div class="contact">
+          <div class="eyebrow">03 / Get in touch</div>
+          <h2 class="section-title">Mari terhubung.</h2>
+          <p class="section-copy">Punya ide, ingin berdiskusi, atau sekadar menyapa? Saya senang berkenalan dengan orang baru.</p>
+          <!-- Ganti alamat email di bawah dengan email kamu agar tombol berfungsi. -->
+          <a class="btn primary" href="mailto:emailkamu@example.com">Kirim email ↗</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer><div class="wrap">© <span id="year"></span> Okta. Dibuat dengan semangat belajar.</div></footer>
+  <script>document.getElementById("year").textContent = new Date().getFullYear();</script>
+</body>
+</html>
